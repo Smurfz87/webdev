@@ -78,3 +78,53 @@ body {
     clear: both;
     margin-top: -30px;
 }
+
+/***************** MAIN BODY START ************************/
+
+.container .jumbotron {
+    box-shadow: 0 0 50px #462075;
+    border: 4px solid #462075;
+    padding: 0;
+}
+
+#particle-tile {
+    background: url("../images/photon.png") no-repeat;
+}
+
+#arduino-tile {
+    background: url("../images/arduino.png") no-repeat;
+}
+
+#particle-tile, #arduino-tile, #map-tile {
+    height: 250px;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    border: 10px solid #462075;
+    border-radius: 10px;
+    background-position: center;
+    background-size: contain;
+    background-color: #462075;
+}
+
+#particle-tile:hover, #arduino-tile:hover, #map-tile:hover {
+    box-shadow: 0 1px 5px 1px #CCCCCC;
+}
+
+
+/** BOTTOM **/
+
+/* creates text spanning the bottom of the parent element with seethrough properties
+menu-tile span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.8;
+}
+*/
