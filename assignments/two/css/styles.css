@@ -1,0 +1,30 @@
+body {
+    size: 16px;
+    background-color: #665799;
+}
+
+#header-nav {
+    background-color: #CA6780;
+    border-radius: 0;
+    border: 0;
+}
+
+.navbar-brand {
+    padding-top: 20px;
+}
+
+.navbar-brand h1 {
+    font-family: 'Unica One', cursive;
+    color: #6b4889;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.25em;
+    text-shadow: 1px 1px 1px #ffa;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.75;
+}
+
+.navbar-brand a:hover, navbar-brand a:focus {
+    text-decoration: none;
+}
