@@ -9,7 +9,6 @@ h1 {
 
 p {
     clear: right;
-    
     padding: 0em 0.5em 0em 0.5em;
 }
 
@@ -23,7 +22,7 @@ p {
     background-color: lightgrey;
 }
 
-.burger, .pizza, .secret {
+#burger, #pizza, #secret {
     border: solid green;
     border-width: 0px 0px 1px 1px;
     font-size: 125%;
@@ -32,15 +31,15 @@ p {
     float: right;
 }
 
-.burger {
+#burger {
     background-color: brown;
 }
 
-.pizza {
+#pizza {
     background-color: palegoldenrod;
 }
 
-.secret {
+#secret {
     background-color: mediumpurple;
 }
 
