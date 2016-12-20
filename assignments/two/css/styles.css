@@ -1,21 +1,21 @@
 body {
     size: 16px;
-    background-color: #665799;
+    background-color: #D1AAFC;
 }
 
 #header-nav {
-    background-color: #CA6780;
+    background-color: #AF76EC;
     border-radius: 0;
     border: 0;
 }
 
 .navbar-brand {
-    padding-top: 20px;
+    padding-top: 9px;
 }
 
 .navbar-brand h1 {
     font-family: 'Unica One', cursive;
-    color: #6b4889;
+    color: #21063D;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 2.25em;
@@ -27,4 +27,48 @@ body {
 
 .navbar-brand a:hover, navbar-brand a:focus {
     text-decoration: none;
+}
+
+#nav-button {
+    background-color: #eaedf2;
+}
+
+#collapsable-nav {
+    margin-bottom: -7px;
+}
+
+#nav-list {
+    background-color: #6BEACE;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #AF76EC;
+}
+
+.navbar-collapse {
+    box-shadow: 0;
+}
+
+li {
+    font-family: 'Unica One', cursive;
+    font-size: 1.25em;
+}
+
+.list-item {
+    border-bottom: 1px solid black;
+}
+
+.col-xs-12 {
+    margin-top: 10px;
+    background-color: #B183FF;
+    height: 1000px;
+}
+
+h2.text-center {
+    font-family: 'Unica One', cursive;
+    color: #21063D;
+}
+
+div.col-xs-12, div.col-md-6, div.col-lg-4 {
+    border: 1px solid black;
 }
