@@ -1,0 +1,146 @@
+:library: Asciidoctor
+:idprefix:
+:numbered:
+:imagesdir: images
+:toc: manual
+:css-signature: demo
+:toc-placement: preamble
+//:max-width: 800px
+//:doctype: book
+//:sectids!:
+
+= GAME SERVER INSTALLATION AND HANDLING GUIDE
+
+toc::[]
+
+== Factorio
+
+'''
+
+Factorio runs by default on port: 34197 on UDP, allow connection through firewall.
+
+=== Download
+
+Server versions can be downloaded from https://www.factorio.com/download-headless/stable[Factorio's download page].
+
+The download request is redirected so to remedy this use the -O flag and the file name, example:
+
+[source]
+----
+cd download
+
+wget -O factorio_headless.tar.gz https://www.factorio.com/get-download/0.15.37/headless/linux64
+----
+
+=== Installation
+
+Extract the server in the `/opt` directory:
+
+[source]
+----
+sudo tar -xzf factorio_headless.tar.gz -C /opt
+----
+
+Verify that the `factorio` folder was created in the `/opt` directory:
+
+[source]
+----
+cd /opt
+
+ls -al
+----
+
+Create the `saves` directory:
+
+[source]
+----
+cd /opt/factorio
+
+mkdir saves
+----
+
+The server requires a save to be available to start. You can automatically generate one using the command:
+
+[source]
+----
+/opt/factorio/bin/x64/factorio --create /opt/factorio/saves/{save-name}.zip
+----
+
+Or if you want to tweak the world generation for the map you can start Factorio on your PC, create a new game with the generation settings you want, save the game, and copy the save file to the Factorio server's save directory.
+
+=== Setting up a user
+
+For security reasons you should run the server as a separate user without root privelieges:
+
+[source]
+----
+sudo adduser --disable-login --no-create-home --gecos factorio factorio
+----
+
+To run the server without being a root-user the factorio user needs to be set as owner:
+
+[source]
+----
+sudo chown -R factorio:factorio /opt/factorio
+----
+
+=== Configuration
+
+For the server to start you need to create the server-settings.json file. The Factorio provide you with an example by default that you can configure to meet your own needs:
+
+[source]
+----
+cd /opt/factorio/data
+
+sudo cp server-settings.example.json server-settings.json
+----
+
+A reference guide for the configuration can be found at https://wiki.factorio.com/Multiplayer#How_to_List_Your_Server-Hosted_Game_on_the_Matching_Server[the Factorio Wiki].
+
+=== Setting up the service
+
+If you want the Factorio server to start automatically on startup, you need to set up a service.
+
+Lets start by creating the file and opening it for editing:
+
+[source]
+----
+sudo vi /etc/systemd/system/factorio.service
+----
+
+The file you created should contain:
+
+[source]
+----
+[Unit]
+Description = Factorio server
+
+[Service]
+Type = simple
+User = factorio
+ExecStart = /otp/factorio/bin/x64/factorio --start-server /opt/factorio/saves/{save_name}.zip --server-settings /opt/factorio/data/server-settings.json
+----
+
+
+
+== Things to consider
+
+'''
+
+Enable firewall? : If running in Azure this step is not nessecary
+
+.Uncomplicated firewall
+[source]
+----
+sudo ufw enable
+sudo ufw {allow|deny|disabled} {port:range}/{tcp|udp}
+----
+
+For more detailed information visit https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04[Digital Ocean's guide]
+
+== References
+
+'''
+
+https://gist.github.com/othyn/e1287fd937c1e267cdbcef07227ed48c[Factorio installation by othyn]
+https://wiki.factorio.com/Multiplayer[Factorio Wiki]
