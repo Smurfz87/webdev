@@ -17,7 +17,7 @@ toc::[]
 
 '''
 
-Factorio is awesome and runs by default on port: 34197 on UDP, allow connection through firewall. This is legit
+Factorio is awesome and runs by default on port: 34197 on UDP, allow connection through firewall. Something else
 
 === Download
 
